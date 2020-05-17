@@ -1,10 +1,11 @@
-package com.example.androidavatar;
+package com.example.androidavatar.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.androidavatar.R;
+
+public class AndroidMeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
