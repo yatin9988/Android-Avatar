@@ -1,6 +1,7 @@
 package com.example.androidavatar.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +28,6 @@ public class BodyPartFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        if(savedInstanceState!=null){
-            this.images = savedInstanceState.getIntegerArrayList(LIST);
-            this.index = savedInstanceState.getInt(INDEX);
-        }
-
         View view = inflater.inflate(R.layout.body_part_fragment,container,false);
         final ImageView imageView = view.findViewById(R.id.image);
         if(this.images!=null)
@@ -55,10 +51,4 @@ public class BodyPartFragment extends Fragment {
         this.index = index;
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(INDEX,index);
-        outState.putIntegerArrayList(LIST, (ArrayList<Integer>) images);
-        super.onSaveInstanceState(outState);
-    }
 }

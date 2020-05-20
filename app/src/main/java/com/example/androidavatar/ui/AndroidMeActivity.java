@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
+
 import com.example.androidavatar.R;
 import com.example.androidavatar.data.AndroidImageAssets;
 
@@ -12,8 +14,9 @@ public class AndroidMeActivity extends AppCompatActivity {
     FragmentManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.android_me_activity);
         manager = getSupportFragmentManager();
 
         BodyPartFragment heads = new BodyPartFragment();
@@ -40,4 +43,5 @@ public class AndroidMeActivity extends AppCompatActivity {
         transaction2.commit();
         transaction3.commit();
     }
+
 }

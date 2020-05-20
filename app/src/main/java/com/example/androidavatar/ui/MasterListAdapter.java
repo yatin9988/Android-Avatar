@@ -24,7 +24,7 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.body_part_fragment,parent,false);
+        View view = inflater.inflate(R.layout.list_item,parent,false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }
@@ -45,7 +45,7 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.My
         ImageView imageView;
         public MyViewHolder(View view){
             super(view);
-            imageView = view.findViewById(R.id.image);
+            imageView = view.findViewById(R.id.item);
         }
 
         public void setData(int id){
