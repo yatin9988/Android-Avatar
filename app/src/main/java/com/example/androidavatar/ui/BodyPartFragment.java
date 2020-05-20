@@ -12,9 +12,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.androidavatar.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BodyPartFragment extends Fragment {
+
+    private static final String LIST = "List_Images";
+    private static final String INDEX = "Index";
 
     private List<Integer> images;
     private int index;
@@ -22,10 +26,24 @@ public class BodyPartFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        if(savedInstanceState!=null){
+            this.images = savedInstanceState.getIntegerArrayList(LIST);
+            this.index = savedInstanceState.getInt(INDEX);
+        }
+
         View view = inflater.inflate(R.layout.body_part_fragment,container,false);
-        ImageView imageView = view.findViewById(R.id.image);
+        final ImageView imageView = view.findViewById(R.id.image);
         if(this.images!=null)
             imageView.setImageResource(this.images.get(this.index));
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index = (index+1)%images.size();
+                imageView.setImageResource(images.get(index));
+            }
+        });
         return view;
     }
 
@@ -37,4 +55,10 @@ public class BodyPartFragment extends Fragment {
         this.index = index;
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt(INDEX,index);
+        outState.putIntegerArrayList(LIST, (ArrayList<Integer>) images);
+        super.onSaveInstanceState(outState);
+    }
 }
