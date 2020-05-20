@@ -24,7 +24,7 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.master_view_layout,parent,false);
+        View view = inflater.inflate(R.layout.body_part_fragment,parent,false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }
@@ -39,7 +39,6 @@ public class MasterListAdapter extends RecyclerView.Adapter<MasterListAdapter.My
     public int getItemCount() {
         return imageIds.size();
     }
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
